@@ -5,6 +5,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,        
     },
+    size: {
+        type: String,
+        required: true,
+    },
     description: {
         type: String,
         required: true,
@@ -24,6 +28,10 @@ const productSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true,
+    },
+    color: {
+        type: String,
+        // required: true,
     },
 }, { timestamps: true });
 
