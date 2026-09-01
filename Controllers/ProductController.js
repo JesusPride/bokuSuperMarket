@@ -15,6 +15,11 @@ const Product = require('../Models/Product');
 // CREATE PRODUCT
 exports.createProduct = async (req, res) =>  {
     try {
+
+        if (!req.body.name || !req.body.size || !req.body.description || !req.body.price || !req.body.category || !req.body.imageUrl || !req.body.quantity) {
+            return res.status(400).json({ message: 'Please provide all required fields' });
+        }
+
         const { name,size, description, price, category, imageUrl, quantity, color } = req.body;
 
         const product = new Product({

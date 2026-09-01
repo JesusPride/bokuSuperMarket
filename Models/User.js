@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: true,
     // unique: true,
@@ -24,17 +24,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  hasAtmCard: {
+  hasAdminAcess: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   role: {
     type: String,
-    enum: ['user', 'admin'],
-    default: 'user',
+    enum: ['superadmin','storekeeper', 'salesperson'],
+    default: 'salesperson',
   },
- timestamps: true,
-});
+ 
+},
+{timestamps: true,}
+);
 
 const User = mongoose.model('User', userSchema);
 
